@@ -31,40 +31,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.hackathon.unievents.R
+import com.hackathon.unievents.ui.screen.catalog.IconInfo
 import com.hackathon.unievents.ui.theme.Typography
 
-
-@Composable
-fun EventTitle(modifier: Modifier = Modifier) {
-    Row(
-        modifier = modifier.fillMaxWidth()
-    ) {
-        Text(
-            text = "Upcoming events",
-            style = Typography.h5,
-            modifier = Modifier.padding(all = 4.dp),
-            fontWeight = FontWeight.Bold
-        )
-    }
-}
-
-@Composable
-fun EventDivider(
-    text: String,
-    modifier: Modifier = Modifier
-) {
-    Row(
-        modifier = modifier.fillMaxWidth()
-    ) {
-        Text(
-            text = text,
-            style = Typography.subtitle2,
-            color = Color.Gray,
-            modifier = Modifier.padding(all = 4.dp),
-            fontWeight = FontWeight.Bold
-        )
-    }
-}
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
@@ -165,47 +134,19 @@ private fun EventInfoGroup(modifier: Modifier = Modifier) {
         verticalArrangement = Arrangement.spacedBy(space = 4.dp)
     ) {
         Row(modifier = Modifier.fillMaxWidth()) {
-            EventInfo(
+            IconInfo(
                 text = "3:45 - 7:00 PM",
                 iconId = R.drawable.ic_clock,
                 fillMaxSize = false,
                 modifier = Modifier.weight(weight = 1.5f)
             )
-            EventInfo(
+            IconInfo(
                 text = "St. Mary Magdolna Center",
                 iconId = R.drawable.ic_location,
                 modifier = Modifier.weight(weight = 2f)
             )
         }
-        EventInfo(text = "25 participants", iconId = R.drawable.ic_participant)
-    }
-}
-
-@Composable
-private fun EventInfo(
-    text: String,
-    iconId: Int,
-    modifier: Modifier = Modifier,
-    fillMaxSize: Boolean = true
-) {
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(space = 4.dp),
-        modifier = modifier
-    ) {
-        Image(
-            painter = painterResource(id = iconId),
-            contentDescription = null,
-            contentScale = ContentScale.FillWidth,
-            modifier = Modifier.size(size = 16.dp)
-        )
-        Text(
-            text = text,
-            style = Typography.overline,
-            modifier = if (fillMaxSize) Modifier.weight(weight = 1f) else Modifier,
-            overflow = TextOverflow.Ellipsis,
-            maxLines = 1
-        )
+        IconInfo(text = "25 participants", iconId = R.drawable.ic_participant)
     }
 }
 

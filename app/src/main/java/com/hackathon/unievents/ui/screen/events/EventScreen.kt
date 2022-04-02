@@ -26,11 +26,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.hackathon.unievents.R
+import com.hackathon.unievents.ui.screen.catalog.ScreenTitle
 import com.hackathon.unievents.ui.screen.events.catalog.EventCard
-import com.hackathon.unievents.ui.screen.events.catalog.EventDivider
-import com.hackathon.unievents.ui.screen.events.catalog.EventTitle
 
-// TODO [high] split into tabs
 @Composable
 fun EventScreen(viewModel: EventViewModel) {
 
@@ -38,7 +36,10 @@ fun EventScreen(viewModel: EventViewModel) {
     val tabTitles = listOf("My Events", "Other Events")
 
     Column {
-        EventTitle(modifier = Modifier.padding(top = 20.dp, start = 20.dp, bottom = 10.dp))
+        ScreenTitle(
+            title = "Upcoming Events",
+            modifier = Modifier.padding(top = 20.dp, start = 20.dp, bottom = 10.dp)
+        )
         TabRow(
             selectedTabIndex = tabIndex,
             backgroundColor = Color.White,
@@ -81,7 +82,7 @@ private fun MyEventsTab(
 ) {
     LazyColumn(
         contentPadding = PaddingValues(all = 20.dp),
-        verticalArrangement = Arrangement.spacedBy(space = 8.dp),
+        verticalArrangement = Arrangement.spacedBy(space = 12.dp),
         modifier = modifier.navigationBarsPadding()
     ) {
         for (i in 0..5) {

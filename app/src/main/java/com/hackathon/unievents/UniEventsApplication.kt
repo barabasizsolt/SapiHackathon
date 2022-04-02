@@ -2,6 +2,8 @@ package com.hackathon.unievents
 
 import android.app.Application
 import com.hackathon.unievents.ui.screen.events.EventViewModel
+import com.hackathon.unievents.ui.screen.eventsDetail.EventDetailViewModel
+import com.hackathon.unievents.ui.screen.teams.TeamViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.GlobalContext.startKoin
 import org.koin.dsl.module
@@ -21,4 +23,6 @@ class UniEventsApplication : Application() {
 
 fun appModule() = module {
     viewModel { EventViewModel() }
+    viewModel { EventDetailViewModel() }
+    viewModel { TeamViewModel() }
 }

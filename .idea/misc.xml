@@ -4,12 +4,16 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/compose-model-1648887732142.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_add.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_calendar_white.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_check.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_clock.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_clock_white.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_favourite.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_flag_white.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_location.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_location_white.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_member.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_nav_event.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_nav_profile.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_nav_team.xml" value="0.1" />
