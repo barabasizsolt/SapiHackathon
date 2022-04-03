@@ -43,6 +43,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.hackathon.unievents.R
+import com.hackathon.unievents.ui.screen.catalog.DescriptionHolder
+import com.hackathon.unievents.ui.screen.catalog.ScreenHeader
 import com.hackathon.unievents.ui.screen.catalog.TeamCard
 import com.hackathon.unievents.ui.theme.Typography
 
@@ -96,9 +98,9 @@ fun EventDetailHolder(
                 verticalArrangement = Arrangement.spacedBy(space = 12.dp)
             ) {
                 item {
-                    EventDetailHeader(
-                        eventName = "Mobile School",
-                        team = "Team Lemon",
+                    ScreenHeader(
+                        title = "Mobile School",
+                        subtitle = "Team Lemon",
                         modifier = Modifier.padding(bottom = 12.dp)
                     )
                 }
@@ -122,7 +124,8 @@ fun EventDetailHolder(
                     )
                 }
                 item {
-                    EventDetailDescription(
+                    DescriptionHolder(
+                        title = "Event description",
                         description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam rutrum tempus ex eget lacinia. Donec vel erat ut est varius tristique. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor libero felis, id vehicula nulla lacinia fringilla. Cras faucibus nisl rutrum",
                         modifier = Modifier.padding(top = 20.dp)
                     )
@@ -152,35 +155,6 @@ fun EventDetailHolder(
                     }
                 }
             }
-        }
-    }
-}
-
-@Composable
-private fun EventDetailHeader(
-    eventName: String,
-    team: String,
-    modifier: Modifier = Modifier
-) {
-    Column(modifier = modifier.fillMaxWidth()) {
-        Text(
-            text = eventName,
-            style = Typography.h5,
-            modifier = Modifier.padding(all = 4.dp),
-            fontWeight = FontWeight.Bold
-        )
-        Card(
-            modifier = Modifier.wrapContentSize(),
-            shape = RoundedCornerShape(size = 20f),
-            backgroundColor = Color.Gray
-        ) {
-            Text(
-                text = team,
-                style = Typography.overline,
-                modifier = Modifier.padding(all = 8.dp),
-                fontWeight = FontWeight.Bold,
-                color = Color.White
-            )
         }
     }
 }
@@ -249,41 +223,6 @@ private fun EventDetailIcon(iconId: Int, modifier: Modifier = Modifier) {
             modifier = Modifier
                 .size(size = 28.dp)
                 .padding(all = 6.dp)
-        )
-    }
-}
-
-@Composable
-private fun EventDetailDescription(
-    description: String,
-    modifier: Modifier = Modifier,
-) {
-    var isExpanded by remember { mutableStateOf(value = false) }
-
-    Column(
-        modifier = modifier
-            .fillMaxWidth()
-            .clickable { isExpanded = !isExpanded }
-            .clipToBounds()
-            .animateContentSize(
-                animationSpec = tween(
-                    durationMillis = 300,
-                    easing = LinearOutSlowInEasing
-                )
-            )
-    ) {
-        Text(
-            text = "Event description",
-            style = Typography.body1,
-            fontWeight = FontWeight.Bold
-        )
-        Spacer(modifier = Modifier.height(height = 10.dp))
-        Text(
-            text = description,
-            style = Typography.caption,
-            color = Color.Gray,
-            maxLines = if (isExpanded) 20 else 3,
-            overflow = TextOverflow.Ellipsis
         )
     }
 }

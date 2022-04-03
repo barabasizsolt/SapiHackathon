@@ -18,6 +18,7 @@ import com.hackathon.unievents.ui.screen.eventsDetail.EventDetailViewModel
 import com.hackathon.unievents.ui.screen.profile.ProfileScreen
 import com.hackathon.unievents.ui.screen.teams.TeamViewModel
 import com.hackathon.unievents.ui.screen.teams.TeamsScreen
+import com.hackathon.unievents.ui.screen.teamsDetail.TeamsDetailScreen
 import org.koin.androidx.compose.getViewModel
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalAnimationApi::class)
@@ -57,9 +58,7 @@ fun AppNavigation(navController: NavHostController) {
         }
 
         composable(route = Route.TEAMS_DETAIL) {
-            Column(modifier = Modifier
-                .fillMaxSize()
-                .background(color = Color.Green)) {}
+            TeamsDetailScreen()
         }
 
         composable(route = Route.PROFILE) {

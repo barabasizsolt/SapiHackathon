@@ -48,7 +48,7 @@ fun MyTeamCard(
                 top = 4.dp
             )
             .clickable { onClick() },
-        verticalArrangement = Arrangement.spacedBy(space = 12.dp)
+        verticalArrangement = Arrangement.spacedBy(space = 10.dp)
     ) {
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -72,7 +72,7 @@ fun MyTeamCard(
                     text = "Leave the team",
                     color = Color.White,
                     style = Typography.overline,
-                    modifier = Modifier.padding(all = 8.dp)
+                    modifier = Modifier.padding(all = 10.dp)
                 )
             }
         }
