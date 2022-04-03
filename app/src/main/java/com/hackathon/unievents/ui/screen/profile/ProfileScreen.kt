@@ -1,5 +1,6 @@
 package com.hackathon.unievents.ui.screen.profile
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -14,12 +15,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.hackathon.unievents.ui.screen.catalog.ScreenTitle
+import com.hackathon.unievents.ui.screen.catalog.UniEventsButton
 import com.hackathon.unievents.ui.screen.catalog.UniEventsInput
 import com.hackathon.unievents.ui.screen.profile.catalog.ProfileAvatar
-import com.hackathon.unievents.ui.screen.profile.catalog.ProfileLogoutButton
 
 @Composable
-fun ProfileScreen() {
+fun ProfileScreen(viewModel: ProfileViewModel) {
     Column(modifier = Modifier.fillMaxWidth()) {
         Card(
             elevation = 4.dp,
@@ -36,14 +37,17 @@ fun ProfileScreen() {
             modifier = Modifier.navigationBarsPadding()
         ) {
             item { Row(horizontalArrangement = Arrangement.Center, modifier = Modifier.fillMaxWidth()) { ProfileAvatar() } }
-            item { UniEventsInput(label = "Full name", text = "John Doe") }
-            item { UniEventsInput(label = "E-mail", text = "john.doe@gmail.com") }
-            item { UniEventsInput(label = "Birthdate", text = "01.23.2004") }
-            item { UniEventsInput(label = "University", text = "Sapientia Hungarian University") }
+            item { UniEventsInput(label = "Full name", text = "John Doe", isEnabled = false) }
+            item { UniEventsInput(label = "E-mail", text = "john.doe@gmail.com", isEnabled = false) }
+            item { UniEventsInput(label = "Birthdate", text = "01.23.2004", isEnabled = false) }
+            item { UniEventsInput(label = "University", text = "Sapientia Hungarian University", isEnabled = false) }
             item {
-                ProfileLogoutButton(
-                    onClick = { /*Logout + navigate to Login*/ },
-                    modifier = Modifier.padding(start = 20.dp, end = 20.dp)
+                UniEventsButton(
+                    text = "Logout",
+                    onClick = { viewModel.onLogOutClicked() },
+                    modifier = Modifier.padding(start = 20.dp, end = 20.dp),
+                    isEnabled = true,
+                    isLoading = false
                 )
             }
         }

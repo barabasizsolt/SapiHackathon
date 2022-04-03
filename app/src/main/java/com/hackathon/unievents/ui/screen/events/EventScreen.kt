@@ -1,18 +1,15 @@
 package com.hackathon.unievents.ui.screen.events
 
-import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.Divider
 import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Tab
 import androidx.compose.material.TabRow
 import androidx.compose.material.Text
@@ -22,7 +19,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.hackathon.unievents.R
@@ -42,8 +38,8 @@ fun EventScreen(viewModel: EventViewModel) {
         )
         TabRow(
             selectedTabIndex = tabIndex,
-            backgroundColor = Color.White,
-            modifier = Modifier.height(height = 55.dp)
+            modifier = Modifier.height(height = 55.dp),
+            backgroundColor = MaterialTheme.colors.background
         ) {
             tabTitles.forEachIndexed { index, title ->
                 Tab(
@@ -83,7 +79,9 @@ private fun MyEventsTab(
     LazyColumn(
         contentPadding = PaddingValues(all = 20.dp),
         verticalArrangement = Arrangement.spacedBy(space = 12.dp),
-        modifier = modifier.navigationBarsPadding()
+        modifier = modifier
+            .navigationBarsPadding()
+            .background(MaterialTheme.colors.background)
     ) {
         for (i in 0..5) {
             item {
@@ -105,7 +103,9 @@ private fun EventsTab(
     LazyColumn(
         contentPadding = PaddingValues(all = 20.dp),
         verticalArrangement = Arrangement.spacedBy(space = 8.dp),
-        modifier = modifier.navigationBarsPadding()
+        modifier = modifier
+            .navigationBarsPadding()
+            .background(MaterialTheme.colors.background)
     ) {
         for (i in 0..5) {
             item {

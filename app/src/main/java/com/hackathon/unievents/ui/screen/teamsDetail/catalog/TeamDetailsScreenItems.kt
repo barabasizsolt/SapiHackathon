@@ -26,6 +26,7 @@ import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -46,8 +47,7 @@ import com.hackathon.unievents.ui.theme.Typography
 
 @Composable
 fun TeamsDetailScreenHolder(
-    modifier: Modifier = Modifier,
-    onTeamClicked: () -> Unit
+    modifier: Modifier = Modifier
 ) {
 
     val listState = rememberLazyGridState()
@@ -86,7 +86,7 @@ fun TeamsDetailScreenHolder(
             modifier = Modifier
                 .padding(top = padding)
                 .fillMaxSize(),
-            backgroundColor = Color.White
+            backgroundColor = MaterialTheme.colors.background
         ) {
             LazyVerticalGrid(
                 state = listState,
@@ -136,7 +136,8 @@ private fun DescriptionParticipant(
     Card(
         modifier = modifier.wrapContentSize(),
         shape = RoundedCornerShape(size = 12.dp),
-        elevation = 4.dp
+        elevation = 4.dp,
+        backgroundColor = MaterialTheme.colors.background
     ) {
         Column(
             modifier = Modifier

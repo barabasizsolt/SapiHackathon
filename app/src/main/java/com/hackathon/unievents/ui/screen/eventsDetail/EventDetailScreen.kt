@@ -1,9 +1,13 @@
 package com.hackathon.unievents.ui.screen.eventsDetail
 
 import androidx.compose.runtime.Composable
+import com.hackathon.unievents.ui.screen.catalog.FloatingButton
 import com.hackathon.unievents.ui.screen.eventsDetail.catalog.EventDetailHolder
 
 @Composable
 fun EventDetailScreen(viewModel: EventDetailViewModel) {
-    EventDetailHolder(onEventClicked = { viewModel.onTeamClicked() })
+    FloatingButton(
+        onClick = { viewModel.onUpClicked() },
+        content = { EventDetailHolder(onEventClicked = { viewModel.onTeamClicked() }) }
+    )
 }
